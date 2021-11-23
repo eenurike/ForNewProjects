@@ -3,7 +3,8 @@
 gulp установить глобально npm i gulp -g
 И если выдает ошибку "gulp : Невозможно загрузить файл C:\Users\Админ\AppData\Roaming\npm\gulp.ps1"
 то нужно дать доступ в powershell через запуск администратора, там пишешь Set-ExecutionPolicy unrestricted,
-и даешь разрешение */
+и даешь разрешение 
+forTersrting*/
 
 /* Все плагины скачаивай с nom i --save-dev bla */
 
