@@ -68,6 +68,18 @@ function scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
     /* Зачем путь указывать к минифицированной версии, если мы будем сжимать файл */
+    'node_modules/slick-carousel/slick/slick.js',
+    /* Подключили slick слайдер */
+    'node_modules/swiper/swiper-bundle.min.js',
+    /* Подключил слайдер swiper для теста */
+    'node_modules/@fancyapps/ui/dist/fancybox.umd.js',
+    /* Подключили fancybox */
+    'node_modules/rateyo/src/jquery.rateyo.js',
+    /* Подключили звездный рейтинг */
+    'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
+    /* Подключили фильтрацию цен */
+    'node_modules/jquery-form-styler/dist/jquery.formstyler.js',
+    /* Подключили плагин стилизаций форм */
     'app/js/main.js'
     /* Файлов js может быть много, так что записываем в квадратных скобках */
   ])

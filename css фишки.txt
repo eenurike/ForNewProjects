@@ -1,0 +1,138 @@
+Стилизация checkbox, действуем по принципу спрячь и покажи чтото другое, так как чекбоксы не стилизуются, структура должна быть такая. И обязательно чтоб этот span который встает вместо input checkbox, должен находится ниже input checkbox, так как код идет сверху вниз, мы не можем задать верхнему коду свойства!!!
+
+<label class="box">
+  <input class="input" type="checkbox">
+  <span class="checkbox"></span>
+</label>
+
+<label class="box">
+  <input class="input" type="checkbox" checked>
+  /* Это чтоб всегда одна категория была выбрана */
+  <span class="checkbox"></span>
+</label>
+
+.input {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  position: absolute;
+}
+
+/* 
+ИЛИ стилизуешь прям в самом теге span, например вставляешь картинки svg которые меняют цвет при клике 
+<label class="box">
+  <input class="input" type="checkbox" checked>
+  /* Это чтоб всегда одна категория была выбрана */
+  <span class="checkbox">
+    <svg>Bla</svg>
+  </span>
+</label>
+*/
+
+
+.input:checked + .checkbox {
+  background-image: url('../images/icons/on-check.svg');
+  /* Тут мы пишем чтоб свойство checked передалось в наш span, и стилизуем его как хотим, в моем случае я скачал галочку и при клике на span будет показываться галочка */
+}
+
+И потом просто стилизуем span на месте checkbox
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  display: block;
+  /* Чтоб этот span появился, можно было position absolute, но мне так не нравится позиционировать элемент */
+  margin-top: 2px;
+}
+
+С радиобатанами немногу схема по другому, там же нужно выбрать только одну категорию
+
+<label class="box">
+  <input class="input" type="radio" name="bla">
+  <span class="radio"></span>
+</label>
+
+<label class="box">
+  <input class="input" type="radio" name="bla">
+  <span class="radio"></span>
+</label>
+
+То есть нужно указывать атрибут name
+
+И смотри когда верстаешь блоки с филтрацией, когда выбираешь пункты, потом жмешь поиск, и сайт ищет по твоим категориям, то все элементы форм нужно писать в теге form,
+а выбор в каких либо категорях пишешь в label, label как бы обьединяет что в нем написанно, ну и при помощи манипуляции которая описанна сверху, можешь стилизовать выборку.
+И radiobutton стилизуются точно так же!!!
+
+Если нужно при hover или click поставить элемент по цетру по вертикале и он position absolute относительно родительского элемента 
+
+bla:hover {
+  bottom: 50%;
+  transform: translateY(50%)'
+}
+
+Если нужен слайдер который будет показывать одну большую фотографию а с боку маленькие, и при клике на маленькие фотографии в большом окне будет отображаться та кликнутая фотография, используя слик слайдер
+
+$('.product-inner__main').slick({
+    asNavFor: '.product-inner__aside',
+    /* Соединяем слайдеры */
+    focusOnSelect: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    vertical: true,
+    /* Ну чтоб слйдер был вертикальным, а не горизонтальным */
+    draggable: false
+    /* Чтоб вообще он не двигался */
+
+  });
+  $('.product-inner__aside').slick({
+    asNavFor: '.product-inner__main',
+    /* Соединяем слайдеры */
+    draggable: false
+  });
+
+  структура HTML 
+
+<div class="product-inner__aside">
+  <div class="product-inner__aside-item">
+    <img class="product-inner__aside-img" src="images/product/product-details/1.jpg" alt="">
+  </div>
+  <div class="product-inner__aside-item">
+    <img class="product-inner__aside-img" src="images/product/product-details/1.jpg" alt="">
+  </div>
+  <div class="product-inner__aside-item">
+    <img class="product-inner__aside-img" src="images/product/product-details/1.jpg" alt="">
+  </div>
+  <div class="product-inner__aside-item">
+    <img class="product-inner__aside-img" src="images/product/product-details/1.jpg" alt="">
+  </div>
+</div>
+
+<div class="product-inner__main">
+  <div class="product-inner__main-item">
+    <img class="product-inner__main-img" src="images/product/product-details/1.jpg" alt="">
+  </div>
+  <div class="product-inner__main-item">
+    <img class="product-inner__main-img" src="images/product/product-details/1.jpg" alt="">
+  </div>
+  <div class="product-inner__main-item">
+    <img class="product-inner__main-img" src="images/product/product-details/1.jpg" alt="">
+  </div>
+  <div class="product-inner__main-item">
+    <img class="product-inner__main-img" src="images/product/product-details/1.jpg" alt="">
+  </div>
+</div>
+
+То есть структура второго слайдера должна быть такой же как и в первом
+
+css полезное свойство
+pointer-events: auto | none
+auto Восстанавливает функциональность элемента по умолчанию.
+none Предотвращает события мыши и щелчки по элементу.
+
+background-position: bottom -150px left 0;
+типа низу -150px слева 0 задаешь, так легче позиционировать элемента
+
+И отступы лучше используй VW так как при адаптивке это очень удобно, https://only-to-top.ru/services/px-to-vw.html это калькулятор перевода px в vw
+
+Если блок больще чем картинка, можешь img задать width: 100%, чтоб картинка разширилась на всю ширину блока 
