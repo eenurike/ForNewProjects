@@ -1,0 +1,12 @@
+// @font-face {
+//   font-family: 'Quicksand-Medium';
+//   font-weight: 500;
+//   /* Medium это всегда жирность 500 */
+//   font-style: normal;
+//   font-display: swap;
+//   /* Самый оптимальный способ подгрузки шрифтов на сайт */
+//   src: local('Quicksand-Medium'),
+//   /* local означает что, если у пользователя на компе есть этот шрифт, то он вытенет у него, а не будет тянуть с интернета */
+//        url('../fonts/Quicksand-Medium.woff') format('woff'),
+//        url('../fonts/Quicksand-Medium.woff2') format('woff2')
+// }
