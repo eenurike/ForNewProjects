@@ -1,0 +1,22 @@
+@import './base/vars';
+
+body {
+	background: $bg-color;
+}
+
+.container {
+	display: flex;
+	gap: 10px;
+
+	& > div {
+		width: 100px;
+		height: 100px;
+		background-color: tomato;
+	}
+}
+
+// div {
+// 	width: 100px;
+// 	height: 100px;
+// 	background-color: red;
+// }
