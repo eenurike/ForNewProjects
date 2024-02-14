@@ -1,0 +1,63 @@
+@charset "UTF-8";
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+ul[class] {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* libs это то где хранятся все библеотеки, это просто как если бы пожключали через link в html */
+/* Если прописать просто css, то он просто закинет этот путь в виде строки */
+/* ПОсле того как поймешь структуру этого плагина формы, можешь стереть theme, чтоб 
+стили лишние не мешали *//*# sourceMappingURL=style.css.map */
