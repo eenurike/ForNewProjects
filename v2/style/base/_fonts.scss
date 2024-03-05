@@ -1,1 +1,13 @@
+// сперва качается обычно в формате ttf, а потом конвертируешь в формате woff2
 
+@font-face {
+	font-family: 'Antipasto Pro'; // ЗАШЛУШКА, Название, в кавычках если есть пробел или кириллица, а так обычно без кавычек
+	font-weight: 400; // На каждую жирность нужно такую же конструкцию писать
+	font-style: normal;
+	src: local('Antipasto Pro Regular'),
+		// Подгрузить если есть на компе
+		local('AntipastoPro-Regular'),
+		// Если файл написан вот так
+		url('../fonts/AntipastoPro-Regular.woff2') format('woff2');
+	font-display: swap; // Нужно подключать именно swap
+}

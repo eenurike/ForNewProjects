@@ -1,1 +1,77 @@
+@mixin fluid-text($max: 48, $min: 16) {
+	// Размер шрифта по дефолту
+	font-size: clamp(
+		#{$min}px,
+		#{$max / 1440 * 100}vw,
+		#{$max}px
+	); // Указываем ширину макета 1440 например и корректная формула для вычисления во vw еденицах
+}
 
+// как использовать mixin
+// .test {
+// 	@include fluid-text;
+// 	Как укажется дефолтное значение
+// 	@include fluid-text(20, 14);
+// 	Так указываем свои значения
+// }
+
+@mixin reset-link {
+	color: inherit;
+
+	&,
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+@mixin reset-button {
+	padding: 0;
+	background-color: transparent;
+	border: none;
+}
+
+@mixin flex-center($isInline: false) {
+	@if $isInline {
+		display: inline-flex;
+	} @else {
+		display: flex;
+	}
+
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin abs-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+}
+
+@mixin square($size) {
+	width: $size;
+	aspect-ratio: 1;
+}
+
+// Миксин для того чтобы на мобилке правльно отрабатывал hover, так как на мобиле его нет
+@mixin hover {
+	@media (hover: hover) {
+		// Сработает на компах где hover работает
+		&:hover {
+			@content;
+		}
+	}
+
+	@media (hover: none) {
+		// Сработает только на устройствах с тач экраном, где нет hover
+		&:active {
+			@content;
+		}
+	}
+}
+// button {
+// 	background-color: black;
+// 	@include hover {
+// 		background-color: coral; // Сюда пишем @content
+// 	}
+// }

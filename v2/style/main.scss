@@ -1,2 +1,12 @@
-@import './base/vars', './base/globals', './base/mixins', './base/media',
-	'./base/fonts', './base/libs', './base/utils', './base/reset';
+@import './base/globals', './base/vars', './base/mixins', './base/fonts',
+	'./base/libs', './base/utils', './base/reset';
+
+@import './blocks/header';
+
+h1 {
+	color: darkkhaki;
+	font-size: var(--fluid-20-30);
+}
+
+// Это пишется вконце
+@import './base/media';

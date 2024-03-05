@@ -1,1 +1,8 @@
+body {
+	// @include fluid-text(18, 16);
 
+	font-family: var(--font-family-base);
+	font-size: 18px; // Заглушка
+	font-weight: 400; // Заглушка
+	line-height: 1.28;
+}

@@ -1,2 +1,24 @@
+@use '../../node_modules/utopia-core-scss/src/utopia.scss'; // Подключили utopia переменные
+
 :root {
+	// Все повторяющиеся или нужно которые менять в дальнейшем элементы записывай в переменные
+
+	--wrapper-width: 1440px; // Заглушка
+	--wrapper-padding-x: 20px; // Заглушка
+
+	--font-family-base: 'Antipasto Pro', sans-serif; // Поменяй шрифт, это просто заглушка
+
+	// Utopia mixins & functions
+	@include utopia.generateClamps(
+		(
+				'minWidth': 320,
+				'maxWidth': 1440,
+				'pairs': (
+					(16, 48),
+					(20, 30),
+				),
+				'prefix': 'fluid-'
+			)
+			// var(--fluid-16-48) Вызываем, clamp(16rem, ..., 48rem)
+	);
 }
